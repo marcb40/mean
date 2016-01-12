@@ -7,7 +7,7 @@ var sass = require('gulp-sass');
 
 var config = {
     bootstrapDir: './bower_components/bootstrap-sass',
-    publicDir: './public',
+    publicDir: './flapper-news/public',
 };
 
 gulp.task('css', function() {
@@ -15,7 +15,7 @@ gulp.task('css', function() {
     .pipe(sass({
         includePaths: [config.bootstrapDir + '/assets/stylesheets'],
     }))
-    .pipe(gulp.dest(config.publicDir + '/css'));
+    .pipe(gulp.dest(config.publicDir + '/stylesheets'));
 });
 
 gulp.task('fonts', function() {
@@ -39,7 +39,7 @@ gulp.task('browserify', function() {
         .bundle()
         .pipe(source('main.js'))
         // saves it the public/js/ directory
-        .pipe(gulp.dest(config.publicDir + '/js/'));
+        .pipe(gulp.dest(config.publicDir + '/javascripts/'));
 })
 
 
