@@ -1,5 +1,4 @@
 var gulp = require('gulp')
-//var sass = require('gulp-ruby-sass')
 var connect = require('gulp-connect')
 var browserify = require('browserify')
 var source = require('vinyl-source-stream')
@@ -25,6 +24,7 @@ gulp.task('fonts', function() {
 });
 
 
+
 gulp.task('connect', function () {
     connect.server({
         root: 'public',
@@ -34,21 +34,14 @@ gulp.task('connect', function () {
 
 gulp.task('browserify', function() {
     // Grabs the app.js file
-    console.log('app compile');
     return browserify('./app/app.js')
         // bundles it and creates a file called main.js
         .bundle()
         .pipe(source('main.js'))
         // saves it the public/js/ directory
-        .pipe(gulp.dest('./public/js/'));
+        .pipe(gulp.dest(config.publicDir + '/js/'));
 })
 
-/*gulp.task('sass', function() {
-	console.log('sass compile');
-    return sass('./app/sass/style.sass')
-        .pipe(wiredep())
-        .pipe(gulp.dest('./public/css'))
-})*/
 
 gulp.task('watch', function() {
 

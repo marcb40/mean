@@ -2,7 +2,10 @@
 @import "bootstrap";
 @import "bootstrap/theme";
 
-$someColor: #bada55;
+$someColor: #dada59;
+
 h1 {
     color: $someColor    ;
-    }
+}
+
+.glyphicon-thumbs-up { cursor:pointer }
